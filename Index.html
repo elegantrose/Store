@@ -1,1 +1,636 @@
 
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Rose | متجر الأزياء النسائية</title>
+
+  <style>
+    :root {
+      --pink: #e889ad;
+      --pink-dark: #c95683;
+      --pink-light: #fff0f6;
+      --white: #ffffff;
+      --text: #393039;
+      --gray: #777078;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .announcement {
+      background: var(--pink);
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 12px #e889ad20;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 15px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--pink-dark);
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink-dark);
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--pink);
+      color: white;
+      border: 1px solid var(--pink);
+      border-radius: 30px;
+      padding: 10px 22px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: var(--pink-dark);
+      border-color: var(--pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 55px 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content .subtitle {
+      color: var(--pink-dark);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.4;
+      margin: 15px 0;
+    }
+
+    .hero h1 span {
+      color: var(--pink-dark);
+    }
+
+    .hero p {
+      color: var(--gray);
+      margin-bottom: 25px;
+    }
+
+    .hero-image {
+      background: var(--pink-light);
+      border-radius: 25px;
+      overflow: hidden;
+      min-height: 350px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .features {
+      background: var(--pink-light);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 25px 15px;
+      text-align: center;
+    }
+
+    .feature strong {
+      color: var(--pink-dark);
+      display: block;
+    }
+
+    .feature span {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 60px 22px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .category {
+      border: 1px solid var(--pink);
+      background: white;
+      color: var(--pink-dark);
+      border-radius: 25px;
+      padding: 8px 18px;
+      cursor: pointer;
+    }
+
+    .category.active,
+    .category:hover {
+      background: var(--pink);
+      color: white;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      border: 1px solid #f5dce6;
+      border-radius: 18px;
+      overflow: hidden;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px #c9568318;
+    }
+
+    .product img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      background: var(--pink-light);
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .product-info p {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: bold;
+      color: var(--pink-dark);
+    }
+
+    .order-button {
+      border: none;
+      background: var(--pink);
+      color: white;
+      padding: 9px 14px;
+      border-radius: 22px;
+      cursor: pointer;
+    }
+
+    .order-button:hover {
+      background: var(--pink-dark);
+    }
+
+    .about {
+      background: var(--pink-light);
+      padding: 55px 22px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: var(--pink-dark);
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--gray);
+    }
+
+    .contact {
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .contact h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .contact p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: var(--pink-dark);
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer p {
+      font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 30px;
+      }
+
+      .hero-image img {
+        height: 300px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .product img {
+        height: 210px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product-info h3 {
+        font-size: 15px;
+      }
+
+      .product-bottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .order-button {
+        width: 100%;
+      }
+
+      .features {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    🌸 أهلاً بكِ في Elegant Rose — الأناقة تبدأ من هنا 🌸
+  </div>
+
+  <header>
+    <nav>
+      <a href="#home" class="logo">
+        Elegant Rose
+        <small>WOMEN'S FASHION</small>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#products">المنتجات</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">اتصلي بنا</a>
+      </div>
+
+      <a href="#products" class="button">تسوّقي الآن</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="subtitle">ELEGANCE & BEAUTY</div>
+
+        <h1>
+          لأنكِ تستحقين<br>
+          <span>إطلالة مميزة</span>
+        </h1>
+
+        <p>
+          اكتشفي أحدث الملابس النسائية بتصاميم عصرية
+          وأنيقة، واختاري إطلالتك المفضلة بكل سهولة.
+        </p>
+
+        <a href="#products" class="button">اكتشفي تشكيلتنا ♡</a>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85"
+          alt="أزياء نسائية عصرية">
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <strong>♡ تصاميم أنيقة</strong>
+        <span>اختيارات تناسب ذوقك</span>
+      </div>
+
+      <div class="feature">
+        <strong>✦ أسعار مميزة</strong>
+        <span>أناقة تناسب ميزانيتك</span>
+      </div>
+
+      <div class="feature">
+        <strong>🚚 توصيل الأردن</strong>
+        <span>اسألي عن مناطق التوصيل</span>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-title">
+        <h2>تشكيلتنا المميزة</h2>
+        <p>اختاري القطعة التي تعكس أناقتكِ</p>
+      </div>
+
+      <div class="categories">
+        <button class="category active" data-filter="all">جميع المنتجات</button>
+        <button class="category" data-filter="sets">أطقم نسائية</button>
+        <button class="category" data-filter="dresses">فساتين</button>
+        <button class="category" data-filter="sport">ملابس رياضية</button>
+      </div>
+
+      <div class="products">
+
+        <article class="product" data-category="sets">
+          <img
+            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=85"
+            alt="طقم نسائي أنيق"
+            loading="lazy">
+
+          <div class="product-info">
+            <h3>طقم نسائي أنيق</h3>
+            <p>إطلالة عملية وعصرية للبيت والطلعات.</p>
+
+            <div class="product-bottom">
+              <span class="price">13 د.أ</span>
+              <button class="order-button"
+                data-name="طقم نسائي أنيق"
+                data-price="13">
+                اطلبي الآن
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-category="dresses">
+          <img
+            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85"
+            alt="فستان نسائي أنيق"
+            loading="lazy">
+
+          <div class="product-info">
+            <h3>فستان أنيق</h3>
+            <p>تصميم ناعم لإطلالة مميزة.</p>
+
+            <div class="product-bottom">
+              <span class="price">15 د.أ</span>
+              <button class="order-button"
+                data-name="فستان أنيق"
+                data-price="15">
+                اطلبي الآن
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-category="sport">
+          <img
+            src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=85"
+            alt="إطلالة كاجوال نسائية"
+            loading="lazy">
+
+          <div class="product-info">
+            <h3>طقم كاجوال</h3>
+            <p>راحة وأناقة لإطلالتك اليومية.</p>
+
+            <div class="product-bottom">
+              <span class="price">10 د.أ</span>
+              <button class="order-button"
+                data-name="طقم كاجوال"
+                data-price="10">
+                اطلبي الآن
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>قصتنا في Elegant Rose</h2>
+      <p>
+        نؤمن أن الأناقة ليست مجرد ملابس، بل إحساس بالثقة والجمال.
+        نحرص على تقديم تصاميم نسائية عصرية تساعدكِ على التألق
+        في كل مناسبة، مع تجربة تسوق سهلة ومريحة.
+      </p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>يسعدنا تواصلكِ معنا 🌸</h2>
+      <p>
+        للاستفسار عن المنتجات والمقاسات والألوان والتوصيل،
+        تواصلي معنا مباشرة.
+      </p>
+
+      <a href="#" class="button" id="whatsappContact">
+        تواصلي عبر واتساب
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <h3>Elegant Rose</h3>
+    <p>أناقتكِ، بطريقتكِ ♡</p>
+    <p>© <span id="year"></span> Elegant Rose</p>
+  </footer>
+
+  <script>
+    // ضعي رقم واتسابك مكان الرقم التالي مع مفتاح الأردن.
+    // مثال: 9627XXXXXXXX، بدون علامة + أو مسافات.
+    const WHATSAPP_NUMBER = "9627XXXXXXXX";
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // فلترة المنتجات حسب التصنيف
+    document.querySelectorAll(".category").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".category").forEach(item => {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        const filter = button.dataset.filter;
+
+        document.querySelectorAll(".product").forEach(product => {
+          product.style.display =
+            filter === "all" ||
+            product.dataset.category === filter
+              ? ""
+              : "none";
+        });
+      });
+    });
+
+    function openWhatsApp(message) {
+      if (WHATSAPP_NUMBER.includes("X")) {
+        alert("يرجى إضافة رقم واتسابك داخل الكود أولاً.");
+        return;
+      }
+
+      const url =
+        "https://wa.me/" + WHATSAPP_NUMBER +
+        "?text=" + encodeURIComponent(message);
+
+      window.open(url, "_blank", "noopener");
+    }
+
+    // زر الطلب لكل منتج
+    document.querySelectorAll(".order-button").forEach(button => {
+      button.addEventListener("click", () => {
+        const name = button.dataset.name;
+        const price = button.dataset.price;
+
+        openWhatsApp(
+          "مرحباً، أريد طلب " + name +
+          " بسعر " + price + " دينار. " +
+          "أرجو تزويدي بالمقاسات والألوان المتوفرة."
+        );
+      });
+    });
+
+    // زر التواصل العام
+    document.getElementById("whatsappContact")
+      .addEventListener("click", event => {
+        event.preventDefault();
+        openWhatsApp(
+          "مرحباً، أريد الاستفسار عن منتجات Elegant Rose."
+        );
+      });
+  </script>
+
+</body>
+</html>
